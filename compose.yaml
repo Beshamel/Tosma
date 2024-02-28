@@ -4,7 +4,7 @@ services:
     command: sh -c "cd front && npm i && npm run build && rm -rf ../back/public && mv build ../back/public && cd ../back && npm i && node server.js"
     ports:
       - 127.0.0.1:8081:8081
-    working_dir: /app
+    working_dir: /var/www/tosma
     volumes:
       - ./:/app
     environment:
