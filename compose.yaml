@@ -6,7 +6,7 @@ services:
       - 127.0.0.1:8081:8081
     working_dir: /var/www/tosma
     volumes:
-      - ./:/app
+      - ./:/var/www/tosma
     environment:
       API_PORT: 8081
       MYSQL_HOST: mysql
