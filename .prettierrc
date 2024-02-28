@@ -1,0 +1,15 @@
+{
+    "tabWidth": 4,
+    "semi": false,
+    "singleQuote": true,
+    "bracketSameLine": false,
+    "printWidth": 200,
+    "overrides": [
+        {
+            "files": "compose.yaml",
+            "options": {
+                "tabWidth": 2
+            }
+        }
+    ]
+}

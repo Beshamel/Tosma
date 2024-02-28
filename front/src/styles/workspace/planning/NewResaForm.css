@@ -1,0 +1,84 @@
+.resaFormWrapper {
+    overflow: hidden;
+    background-color: #353a43;
+    transition: height .3s;
+    border-bottom: 2px solid rgb(88, 88, 88);
+}
+
+.resaFormWrapper[mobile='1'] {
+    border-bottom: 1px solid rgb(88, 88, 88);
+}
+
+.resaFormWrapper[display="off"] {
+    height: 0;
+}
+
+.resaFormWrapper[display="on"] {
+    height: 260px;
+}
+
+.resaFormWrapper h2 {
+    margin: 0;
+    padding: 10px;
+    padding-left: 20px;
+}
+
+.resaForm {
+    display: flex;
+    padding: 10px;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.resaFormElement {
+    padding: 10px;
+}
+
+.resaFormNameInput {
+    background-color: #484e58;
+    border: 0 solid;
+    border-radius: 10px;
+    padding: 5px;
+    height: 20px;
+    width: calc(100% - 10px);
+    color: white;
+    transition: background-color .3s;
+}
+
+.resaFormSubmit {
+    border: 0 solid;
+    border-radius: 10px;
+    padding: 10px;
+    height: 40px;
+    color: black;
+    background-color: var(--theme-button);
+    margin: 0;
+    transition: .3s;
+}
+
+.resaFormSubmit:hover {
+    border: 0 solid;
+    border-radius: 10px;
+    padding: 10px;
+    height: 40px;
+    color: black;
+    background-color: var(--theme-button-hover);
+    margin: 0;
+    transition: .3s;
+}
+
+.resaFormSubmit[valid = '0'] {
+    background-color: #6b2f2f;
+    color: grey;
+    transition: .3s;
+}
+
+.resaFormStartInput {
+    background-color: white;
+    border-radius: 5px;
+}
+
+.resaFormEndInput {
+    background-color: white;
+    border-radius: 5px;
+}

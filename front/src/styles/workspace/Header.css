@@ -1,0 +1,82 @@
+header {
+    background-color: var(--header-background);
+    padding: 10px;
+    padding-bottom: 0;
+    color: var(--header-text);
+}
+
+header[mobile='1'] {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+h1.website-title {
+    margin: 15px;
+    margin-top: 5px;
+}
+
+h1.website-title[mobile='1'] {
+    margin-left: 25px;
+}
+
+.version {
+    font-size: medium;
+    color: var(--header-text);
+}
+
+.logoutIcon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 5px;
+    padding: 5px;
+    width: 50px;
+    height: 50px;
+    transition: 0.3s;
+    border-radius: 100vmin;
+}
+
+.kiwiIcon {
+    position: absolute;
+    right: 60px;
+    top: 0;
+    margin: 5px;
+    padding: 5px;
+    width: 50px;
+    height: 50px;
+    transition: 0.3s;
+    border-radius: 100vmin;
+}
+
+.logoutIcon:hover {
+    background-color: var(--header-theme);
+}
+
+.kiwiIcon:hover {
+    background-color: var(--header-theme);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    header {
+        animation: header-slide normal 1s ease-out,
+            header-fade-in normal 1s ease-in-out;
+    }
+}
+
+@keyframes header-slide {
+    from {
+        transform: translateY(-200px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes header-fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        
+    }
+}

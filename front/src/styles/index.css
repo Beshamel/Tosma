@@ -1,0 +1,105 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--app-background-main);
+    color: white;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+}
+
+:root {
+    /* Palette */
+    --light-grey: #484e58;
+    --grey: #353a43;
+    --darkgrey: #282c34;
+    --darkergrey: #18191c;
+    --sky-light: #8ee6ff;
+    --sky: #61dafb;
+    --sky-dark:#2f86a9;
+    --purple: #ad61ff;
+    --pumpkin: #fe7f2d;
+    --pumpkin-dark: #684d3b;
+    --sunglow: #fcca46;
+    --sunglow-dark: #63593a;
+    --zomp: #619b8a;
+    --zomp-dark: #467668;
+    --olivine: #8fbe60;
+    --olivine-dark: #7eac4f;
+    --olivine-darker: #556841;
+    --crimson: #f14343;
+    --crimson-dark: #794b4b;
+    --mindaro: #c5d86d;
+    --giants-orange: #f05d23;
+    --darkblue: #201e50;
+    --tea: #c4f1be;
+    --blue: #5fb2ff;
+    --taupe: rgb(118, 108, 210);
+
+    /* Theme */
+
+    --theme-main: var(--sky-light);
+    --theme-alt: var(--sky);
+    --theme-border: var(--sky);
+
+    --theme-button: var(--sky);
+    --theme-button-hover: var(--sky-light);
+
+    --theme-text: var(--sky);
+
+    /* Backgrounds & borders */
+
+    --app-background-main: var(--darkgrey);
+    --app-background-alt: var(--grey);
+    --app-background-alt2: var(--light-grey);
+
+    --border-default: #585858;
+    --border-light: #919191;
+
+    /* Header */
+
+    --header-background: var(--theme-main);
+    --header-theme: white;
+    --header-text: black;
+    --header-text-theme: black;
+
+    --tab-off-background: none;
+    --tab-off-border: none;
+    --tab-off-text: black;
+    --tab-alt-background: var(--grey);
+    --tab-alt-border: var(--tab-alt-background);
+    --tab-alt-text: white;
+    --tab-on-background: var(--app-background-main);
+    --tab-on-border: var(--tab-on-background);
+    --tab-on-text: white;
+
+    /* Planning */
+
+    --day-header-background: #bb4949;
+    --day-header-background-alt: #e25555;
+    --day-header-background-today: rgb(131, 119, 235);
+    --day-header-text: black;
+    --day-column-background: rgb(92, 42, 42);
+    --day-column-background-alt: rgb(101, 58, 58);
+    --day-column-background-today: rgb(90, 71, 120);
+
+    /*--day-header-background: #4ba0ef;
+    --day-header-background-alt: #68c5ed;
+    --day-header-background-today: rgb(235, 119, 119);
+    --day-header-text: black;
+    --day-column-background: rgb(32, 53, 80);
+    --day-column-background-alt: rgb(58, 78, 101);
+    --day-column-background-today: rgb(120, 71, 71);*/
+
+    --planning-resa-background: var(--grey);
+    --planning-resa-header-background: var(--sky);
+    --planning-resa-border: var(--border-light);
+    --planning-resa-highlight-background: var(--theme-alt);
+    --planning-resa-highlight-border: var(--theme-border)
+}

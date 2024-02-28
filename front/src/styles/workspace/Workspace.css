@@ -1,0 +1,13 @@
+/*.board {
+    padding: 30px;
+}*/
+
+.board {
+    position: relative;
+    background-color: var(--app-background-main);
+    z-index: 3;
+}
+
+.tab[display = '0'] {
+    display: none;
+}

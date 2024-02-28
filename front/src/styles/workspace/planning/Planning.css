@@ -1,0 +1,103 @@
+.iconButton[action="displayForm"][display="on"] {
+    background-color: var(--app-background-alt2);
+    transform: rotate(135deg);
+}
+
+.planning div h1 {
+    margin: 0;
+}
+
+.planningSubtitle {
+    color:var(--border-light);
+    margin-bottom: 20px;
+}
+
+.planning-header {
+    padding: 30px 0px 0px 30px;
+}
+
+.PC {
+    display: grid;
+    grid-template-columns: repeat(7, calc(100%/7));
+}
+
+.PC[empty='0'] {
+    border-bottom: 2px solid var(--border-default);
+}
+
+.resaElement {
+    border: 2px solid var(--planning-resa-border);
+    margin: 5px;
+    border-radius: 15px;
+    background-color: var(--planning-resa-background);
+    transition: .2s;
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+
+.resaElement > * {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.resaElement:hover {
+    background-color: var(--planning-resa-highlight-background);
+    border-color: var(--planning-resa-highlight-border);
+    color: black
+}
+
+.columnPlaceholder[parity='1'] {
+    background-color: var(--day-column-background);
+}
+
+.columnPlaceholder[parity='0'] {
+    background-color: var(--day-column-background-alt);
+    border-left: 1px var(--border-default) solid;
+    border-right: 1px var(--border-default) solid;
+}
+
+.resaElement .date {
+    margin-top: 0;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.dayHeader {
+    background-color: var(--day-header-background);
+    border-bottom: 2px solid var(--border-default);
+    padding: 5px;
+    padding-left: 15px;
+    color: var(--day-header-text)
+}
+
+.dayHeader[parity='0'] {
+    background-color: var(--day-header-background-alt);
+}
+
+.dayHeader[today='1'] {
+    background-color: var(--day-header-background-today);
+}
+
+.columnPlaceholder[today='1'] {
+    background-color: var(--day-column-background-today);
+}
+
+.resaHeader {
+    background-color: var(--planning-resa-header-background);
+    color: black;
+    padding: 5px;
+    padding-left: 10px;
+    transition: .2s;
+    margin-bottom: 3px
+}
+
+.resaElement:hover .resaHeader {
+    background-color: var(--planning-resa-highlight-background);
+    border-color: var(--planning-resa-highlight-border);
+    color: black
+}
+
+.resaCategoryPreview {
+    font-weight: bold;
+    margin: 0;
+}

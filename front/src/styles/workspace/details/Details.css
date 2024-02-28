@@ -1,0 +1,114 @@
+.iconButton[active='1'] {
+    background-color: #484e58;
+}
+
+.iconButton[action="delete"] {
+    background-color: darkred;
+    opacity: 100%;
+    transition: .3s;
+}
+
+.iconButton[action="delete"]:hover {
+    background-color: red;
+}
+
+.red {
+    color: rgb(255, 139, 139);
+}
+
+.detailsTitle {
+    margin: 0;
+}
+
+.detailsSubtitle {
+    color:rgb(166, 166, 166);
+    margin: 0;
+}
+
+.imagesContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.singleImage {
+    max-height: 300px;
+    margin: 0;
+    padding: 10px;
+}
+
+.singleImage img {
+    max-height: 300px;
+    max-width: 100%;
+}
+
+.details-footer {
+    padding: 10px 0px 0px 30px;
+}
+
+.infos {
+    padding: 30px;
+    border-bottom: 1px solid rgb(88, 88, 88);
+}
+
+.modifItemForm {
+    padding: 30px;
+    border-bottom: 1px solid rgb(88, 88, 88);
+}
+
+.removeImageToken {
+    width: 30px;
+    height: 30px;
+    transition: 0.3s ease;
+    border-radius: 100vmin;
+    margin-right: 10px;
+    background-color: darkred;
+}
+
+.removeImageToken:hover {
+    background-color: red;
+}
+
+.imageAdder {
+    padding-left: 30px
+}
+
+.imageAdderSubmit {
+    border: 0 solid;
+    border-radius: 10px;
+    padding: 10px;
+    height: 40px;
+    color: black;
+    background-color: var(--theme-button);
+    margin: 0;
+    transition: .3s;
+}
+
+.imageAdderSubmit:hover {
+    border: 0 solid;
+    border-radius: 10px;
+    padding: 10px;
+    height: 40px;
+    color: black;
+    background-color: var(--theme-button-hover);
+    margin: 0;
+    transition: .3s;
+}
+
+.imageAdderSubmit[valid = '0'] {
+    background-color: #6b2f2f;
+    color: grey;
+    transition: .3s;
+}
+
+.itemQuantity {
+    color: var(--theme-text)
+}
+
+.editItemIcon[active='0'] {
+    transition: background-color .3s;
+}
+
+.editItemIcon[active='1'] {
+    transform: rotate(135deg);
+}

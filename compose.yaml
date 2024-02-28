@@ -1,0 +1,31 @@
+services:
+  app:
+    image: node:18-alpine
+    command: sh -c "cd front && npm i && npm run build && rm -r ../back/public && mv build ../back/public && cd ../back && npm i && node server.js"
+    ports:
+      - 127.0.0.1:8081:8081
+    working_dir: /app
+    volumes:
+      - ./:/app
+    environment:
+      API_PORT: 8081
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_DB: matos
+  mysql:
+    image: mysql:latest
+    volumes:
+      - tosma-mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: matos
+  pma:
+    image: phpmyadmin/phpmyadmin:latest
+    ports:
+      - 8083:80
+    environment:
+      - PMA_HOST=mysql
+
+volumes:
+  tosma-mysql-data:

@@ -1,0 +1,182 @@
+.resa-footer {
+    padding: 10px 0px 0px 30px;
+}
+
+.resa-body {
+    padding: 30px;
+    border-bottom: 1px solid rgb(88, 88, 88);
+}
+
+.resaTitle {
+    margin: 0;
+}
+
+.resaSubtitle {
+    color:rgb(166, 166, 166);
+    margin-bottom: 10px;
+}
+
+.resaUser {
+    color: var(--theme-text);
+    font-style: italic;
+    font-size: larger;
+    margin-bottom: 40px;
+}
+
+.iconButton[action="displayInv"][display="on"] {
+    background-color: #353a43;
+    transform: rotate(135deg);
+}
+
+.resaMatosSelector {
+    margin-top: 0px;
+}
+
+.matosSelectorSearch {
+    background-color: #353a43;
+    border: 0 solid;
+    border-radius: 10px;
+    padding: 5px;
+    height: 20px;
+    color: white;
+    transition: background-color .3s;
+}
+
+.addToken {
+    width: 30px;
+    height: 30px;
+    transition: 0.3s;
+    border-radius: 100vmin;
+    margin-right: 10px;
+    background-color: #353a43;
+}
+
+.addToken:hover {
+    background-color: var(--theme-button-hover);
+}
+
+.removeToken {
+    width: 30px;
+    height: 30px;
+    transition: 0.3s;
+    border-radius: 100vmin;
+    margin-right: 10px;
+    background-color: #353a43;
+    transform: rotate(135deg);
+}
+
+.removeToken:hover {
+    background-color: darkred;
+}
+
+.decreaseToken {
+    width: 30px;
+    height: 30px;
+    transition: 0.3s;
+    border-radius: 100vmin;
+    margin-left: 10px;
+    background-color: #672020;
+}
+
+.decreaseToken:hover {
+    background-color: #b21414;
+}
+
+.decreaseToken[active='0'] {
+    background-color: #353a43;
+}
+
+.increaseToken {
+    width: 30px;
+    height: 30px;
+    transition: 0.3s;
+    border-radius: 100vmin;
+    background-color: rgb(43, 83, 43);
+}
+
+.increaseToken:hover {
+    background-color: #20981b;
+}
+
+.increaseToken[active='0'] {
+    background-color: #353a43;
+}
+
+.resaMatosListEntry {
+    padding-bottom: 5px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+}
+
+.resaMatosListEltWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.matosSelectorCategory {
+    border: 0 solid;
+    border-radius: 10px;
+    padding: 5px;
+    height: 30px;
+    color: white;
+    resize: none;
+    background-color: #353a43;
+    width: fit-content;
+    margin: 0;
+    transition: background-color .3s;
+}
+
+.categoryTitle {
+    margin-bottom: 0;
+}
+
+.resaModifFormElement {
+    padding: 10px;
+}
+
+.resaModifFormNameInput {
+    background-color: #484e58;
+    border: 0 solid;
+    border-radius: 10px;
+    padding: 5px;
+    height: 20px;
+    width: calc(100% - 10px);
+    color: white;
+    transition: background-color .3s;
+}
+
+.resaModifForm {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgb(88, 88, 88);
+}
+
+.addResaMatosTitle {
+    border-top: 1px solid var(--border-default);
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+.resaModifFormStartInput {
+    background-color: white;
+    border-radius: 5px;
+}
+
+.resaModifFormEndInput {
+    background-color: white;
+    border-radius: 5px;
+}
+
+.datePickerContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.datePickerContainer label {
+    margin: 0 10px 0 10px;
+    font-weight: 500;
+}
