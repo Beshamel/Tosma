@@ -34,14 +34,7 @@ const app = express()
 
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
-app.use(
-    cors({
-        origin: 'https://tosma.hyris.tv',
-        methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'PATCH', 'DELETE'],
-        allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept'],
-        credentials: true,
-    })
-)
+app.use(cors())
 
 app.use(passport.initialize())
 
