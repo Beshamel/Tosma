@@ -26,3 +26,6 @@
 #back
 /back/node_modules/
 /back/uploads/
+/back/public/
+/back/config.js
+/back/package-lock.json
