@@ -5,6 +5,7 @@ services:
     ports:
       - 127.0.0.1:8082:8082
     working_dir: /app
+    restart: always
     volumes:
       - ./:/app
     environment:
@@ -15,6 +16,7 @@ services:
       MYSQL_DB: matos
   mysql:
     image: mysql:latest
+    restart: always
     volumes:
       - tosma-mysql-data:/var/lib/mysql
     environment:
@@ -24,6 +26,7 @@ services:
     image: phpmyadmin/phpmyadmin:latest
     ports:
       - 8083:80
+    restart: always
     environment:
       - PMA_HOST=mysql
 
