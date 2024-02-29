@@ -1,19 +1,4 @@
 services:
-  app:
-    image: node:18-alpine
-    command: sh -c "cd front && npm i && npm run build && rm -rf ../back/public && mv build ../back/public && cd ../back && npm i && node server.js"
-    ports:
-      - 127.0.0.1:8082:8082
-    working_dir: /app
-    restart: always
-    volumes:
-      - ./:/app
-    environment:
-      API_PORT: 8082
-      MYSQL_HOST: mysql
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
-      MYSQL_DB: matos
   mysql:
     image: mysql:latest
     restart: always
@@ -22,11 +7,30 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: matos
+  app:
+    image: node:18-alpine
+    command: sh -c "cd front && npm i && npm run build && rm -rf ../back/public && mv build ../back/public && cd ../back && npm i && node server.js"
+    ports:
+      - 127.0.0.1:8082:8082
+    working_dir: /app
+    restart: always
+    depends_on:
+      - 'mysql'
+    volumes:
+      - ./:/app
+    environment:
+      API_PORT: 8082
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_DB: matos
   pma:
     image: phpmyadmin/phpmyadmin:latest
     ports:
       - 8083:80
     restart: always
+    depends_on:
+      - 'mysql'
     environment:
       - PMA_HOST=mysql
 
