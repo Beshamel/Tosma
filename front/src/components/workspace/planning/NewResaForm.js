@@ -6,12 +6,7 @@ import { DateTimePicker, LocalizationProvider } from '@mui/x-date-pickers'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import dayjs from 'dayjs'
 import useWindowDimensions from '../../../hooks/useWindowDimensions'
-
-function formatLocalDateTime(date) {
-    var dt = new Date(date)
-    dt.setMinutes(dt.getMinutes() - dt.getTimezoneOffset())
-    return dt.toISOString().slice(0, 16)
-}
+import { formatLocalDateTime, toUTC } from '../../../Util'
 
 function NewResaForm({ display, refresh, setLoading, post, setResa, mobile }) {
     var { width } = useWindowDimensions()
@@ -33,7 +28,7 @@ function NewResaForm({ display, refresh, setLoading, post, setResa, mobile }) {
             const data = new FormData()
             data.append('name', name)
             data.append('start', formatLocalDateTime(start))
-            data.append('end', formatLocalDateTime(end))
+            data.append('end', formatLocalDateTime(start))
             setLoading(true)
             ;(async () => {
                 try {

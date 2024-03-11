@@ -66,6 +66,24 @@ function remove1minute(date) {
     return new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes() - 1)
 }
 
+export function toUTC(date) {
+    var offsetMin = new Date().getTimezoneOffset()
+    var res = new Date(date)
+    return new Date(res.getTime() + offsetMin * 60 * 1000)
+}
+
+export function toLocal(date) {
+    var offsetMin = new Date().getTimezoneOffset()
+    var res = new Date(date)
+    return new Date(res.getTime() - offsetMin * 60 * 1000)
+}
+
+export function formatLocalDateTime(date) {
+    //var dt = new Date(date)
+    //dt.setMinutes(dt.getMinutes() - dt.getTimezoneOffset())
+    return date.toISOString().slice(0, 16)
+}
+
 export function resaOverlapInPlanning(a, b) {
     return !(
         startOfDay(remove1minute(new Date(a.end))) < startOfDay(new Date(b.start)) ||

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import Popup from 'reactjs-popup'
 
 import { api, categories } from '../../../Constants'
-import { formatDate, formatHour, matchesSearch, sameDay } from '../../../Util'
+import { formatDate, formatHour, formatLocalDateTime, matchesSearch, sameDay, toLocal, toUTC } from '../../../Util'
 import ResaMatosListToken from './ResaMatosListToken'
 
 import binIcon from '../../../assets/icons/bin.svg'
@@ -15,12 +15,6 @@ import { DateTimePicker, LocalizationProvider } from '@mui/x-date-pickers'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import dayjs from 'dayjs'
 import useWindowDimensions from '../../../hooks/useWindowDimensions'
-
-function formatLocalDateTime(date) {
-    var dt = new Date(date)
-    dt.setMinutes(dt.getMinutes() - dt.getTimezoneOffset())
-    return dt.toISOString().slice(0, 16)
-}
 
 function Resa({ id, resa, conflicts, matos, loadResa, setDetails, setResa, deleteResa, inventory, loadPlanning, modif, setModif, post }) {
     var { width } = useWindowDimensions()
@@ -78,6 +72,8 @@ function Resa({ id, resa, conflicts, matos, loadResa, setDetails, setResa, delet
             data.append('name', modName)
             data.append('start', formatLocalDateTime(modStart))
             data.append('end', formatLocalDateTime(modEnd))
+            console.log(modStart)
+            console.log(formatLocalDateTime(modStart))
             ;(async () => {
                 await post(api + '/api/modifResa', data)
                 setModif(false)
@@ -147,8 +143,8 @@ function Resa({ id, resa, conflicts, matos, loadResa, setDetails, setResa, delet
                                         name="start"
                                         ampm={false}
                                         format={'DD-MM-YYYY HH:mm'}
-                                        value={dayjs(formatLocalDateTime(modStart))}
-                                        onChange={(e) => setModStart(new Date(e))}
+                                        value={dayjs(toLocal(formatLocalDateTime(modStart)))}
+                                        onChange={(e) => setModStart(toUTC(new Date(e)))}
                                         onBeforeNavigate={(nextView) => (nextView === 'days' || nextView === 'time' ? nextView : false)}
                                     />
                                     {width < 750 || <label> - Fin : </label>}
@@ -158,8 +154,8 @@ function Resa({ id, resa, conflicts, matos, loadResa, setDetails, setResa, delet
                                         name="end"
                                         ampm={false}
                                         format={'DD-MM-YYYY HH:mm'}
-                                        value={dayjs(formatLocalDateTime(modEnd))}
-                                        onChange={(e) => setModEnd(new Date(e))}
+                                        value={dayjs(toLocal(formatLocalDateTime(modEnd)))}
+                                        onChange={(e) => setModEnd(toUTC(new Date(e)))}
                                     />
                                 </div>
                             </LocalizationProvider>
@@ -282,7 +278,7 @@ function Resa({ id, resa, conflicts, matos, loadResa, setDetails, setResa, delet
                         <h2 className="resaSubtitle">
                             {formatDate(startDate)}
                             {' - '}
-                            {(sameDay(startDate, endDate) ? formatHour : formatDate)(endDate)}
+                            {(sameDay(toLocal(startDate), toLocal(endDate)) ? formatHour : formatDate)(endDate)}
                         </h2>
                         <h2 className="resaUser">Réservé par {resa.displayName}</h2>
                         <div className="resaMatosList">

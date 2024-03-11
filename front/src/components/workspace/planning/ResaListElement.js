@@ -1,13 +1,13 @@
 import { categories } from '../../../Constants'
-import { formatDate, formatHour, sameDay } from '../../../Util'
+import { formatDate, formatHour, sameDay, toLocal } from '../../../Util'
 
 import alertIcon from '../../../assets/icons/alert.svg'
 
 import '../../../styles/workspace/planning/ResaListElement.css'
 
 function ResaListElement({ resa, setDetails, setResa }) {
-    var startDate = new Date(resa.start)
-    var endDate = new Date(resa.end)
+    var startDate = toLocal(new Date(resa.start))
+    var endDate = toLocal(new Date(resa.end))
 
     return (
         <div className="resaListElement interactable" onClick={() => setResa(resa.id)}>

@@ -44,8 +44,8 @@ code {
 
     /* Theme */
 
-    --theme-main: var(--sky-light);
-    --theme-alt: var(--sky);
+    --theme-main: var(--sky);
+    --theme-alt: var(--sky-light);
     --theme-border: var(--sky);
 
     --theme-button: var(--sky);

@@ -36,7 +36,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 app.use(
     cors({
-        origin: 'https://tosma.hyris.tv',
+        origin: config.ALLOWED_ORIGIN,
         methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'PATCH', 'DELETE'],
         allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept'],
         credentials: true,
