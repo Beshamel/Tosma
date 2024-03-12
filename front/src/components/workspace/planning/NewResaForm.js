@@ -40,8 +40,11 @@ function NewResaForm({ display, refresh, setLoading, post, setResa, mobile }) {
                 }
             })()
             setName('')
-            setStart('')
-            setEnd('')
+            var now2 = new Date(Date.now())
+            var later2 = new Date(now2)
+            later2.setHours(later2.getHours() + 1)
+            setStart(now2)
+            setEnd(later2)
             setValid(false)
         }
     }
