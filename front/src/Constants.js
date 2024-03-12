@@ -9,7 +9,8 @@ import img_son from './assets/categories/son.svg'
 import img_battery from './assets/categories/battery.svg'
 
 export const api = 'https://tosma.hyris.tv'
-export const version = '2.0.1'
+//export const api = 'http://localhost:8082'
+export const version = '2.0.2'
 
 export const categories = [
     { cat_id: 0, cat_name: 'Autre', img: img_autre },

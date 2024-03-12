@@ -6,11 +6,11 @@ import { DateTimePicker, LocalizationProvider } from '@mui/x-date-pickers'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import dayjs from 'dayjs'
 import useWindowDimensions from '../../../hooks/useWindowDimensions'
-import { formatLocalDateTime, toUTC } from '../../../Util'
+import { formatLocalDateTime, toLocal, toUTC } from '../../../Util'
 
 function NewResaForm({ display, refresh, setLoading, post, setResa, mobile }) {
     var { width } = useWindowDimensions()
-    var now = new Date()
+    var now = new Date(Date.now())
     var later = new Date(now)
     later.setHours(later.getHours() + 1)
     const [name, setName] = useState('')
@@ -28,7 +28,7 @@ function NewResaForm({ display, refresh, setLoading, post, setResa, mobile }) {
             const data = new FormData()
             data.append('name', name)
             data.append('start', formatLocalDateTime(start))
-            data.append('end', formatLocalDateTime(start))
+            data.append('end', formatLocalDateTime(end))
             setLoading(true)
             ;(async () => {
                 try {
@@ -71,7 +71,7 @@ function NewResaForm({ display, refresh, setLoading, post, setResa, mobile }) {
                             name="start"
                             ampm={false}
                             format={'DD-MM-YYYY HH:mm'}
-                            value={dayjs(start)}
+                            value={dayjs(toLocal(formatLocalDateTime(start)))}
                             onChange={(e) => setStart(new Date(e))}
                             onBeforeNavigate={(nextView) => (nextView === 'days' || nextView === 'time' ? nextView : false)}
                         />
@@ -82,7 +82,7 @@ function NewResaForm({ display, refresh, setLoading, post, setResa, mobile }) {
                             name="end"
                             ampm={false}
                             format={'DD-MM-YYYY HH:mm'}
-                            value={dayjs(end)}
+                            value={dayjs(toLocal(formatLocalDateTime(end)))}
                             onChange={(e) => setEnd(new Date(e))}
                         />
                     </div>

@@ -21,6 +21,7 @@ import {
     sameDay,
     shortDay,
     startOfWeek,
+    toLocal,
 } from '../../../Util'
 import useWindowDimensions from '../../../hooks/useWindowDimensions'
 import { categories } from '../../../Constants'
@@ -59,8 +60,8 @@ function Planning({ setDetails, setResa, loading, loadFail, setLoading, loadPlan
     function resaBlock(resa, k) {
         var startDate = new Date(resa.start)
         var endDate = new Date(resa.end)
-        var startId = Math.max(dateDiffInDays(startOfWeek(week), startDate, false), 0)
-        var endId = Math.max(dateDiffInDays(startOfWeek(week), endDate, true))
+        var startId = Math.max(dateDiffInDays(startOfWeek(week), toLocal(startDate), false), 0)
+        var endId = Math.max(dateDiffInDays(startOfWeek(week), toLocal(endDate), true))
         return (
             <div key={k} style={{ gridColumnStart: startId + 1, gridColumnEnd: endId + 2, gridRowStart: resa.y + 2, gridRowEnd: resa.y + 3 }}>
                 <div className="resaElement interactable" onClick={() => setResa(resa.id)}>

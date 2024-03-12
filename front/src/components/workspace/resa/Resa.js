@@ -72,8 +72,6 @@ function Resa({ id, resa, conflicts, matos, loadResa, setDetails, setResa, delet
             data.append('name', modName)
             data.append('start', formatLocalDateTime(modStart))
             data.append('end', formatLocalDateTime(modEnd))
-            console.log(modStart)
-            console.log(formatLocalDateTime(modStart))
             ;(async () => {
                 await post(api + '/api/modifResa', data)
                 setModif(false)
@@ -144,7 +142,7 @@ function Resa({ id, resa, conflicts, matos, loadResa, setDetails, setResa, delet
                                         ampm={false}
                                         format={'DD-MM-YYYY HH:mm'}
                                         value={dayjs(toLocal(formatLocalDateTime(modStart)))}
-                                        onChange={(e) => setModStart(toUTC(new Date(e)))}
+                                        onChange={(e) => setModStart(new Date(e))}
                                         onBeforeNavigate={(nextView) => (nextView === 'days' || nextView === 'time' ? nextView : false)}
                                     />
                                     {width < 750 || <label> - Fin : </label>}
@@ -155,7 +153,7 @@ function Resa({ id, resa, conflicts, matos, loadResa, setDetails, setResa, delet
                                         ampm={false}
                                         format={'DD-MM-YYYY HH:mm'}
                                         value={dayjs(toLocal(formatLocalDateTime(modEnd)))}
-                                        onChange={(e) => setModEnd(toUTC(new Date(e)))}
+                                        onChange={(e) => setModEnd(new Date(e))}
                                     />
                                 </div>
                             </LocalizationProvider>

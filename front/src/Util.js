@@ -86,8 +86,8 @@ export function formatLocalDateTime(date) {
 
 export function resaOverlapInPlanning(a, b) {
     return !(
-        startOfDay(remove1minute(new Date(a.end))) < startOfDay(new Date(b.start)) ||
-        startOfDay(remove1minute(new Date(b.end))) < startOfDay(new Date(a.start))
+        startOfDay(remove1minute(toLocal(new Date(a.end)))) < startOfDay(toLocal(new Date(b.start))) ||
+        startOfDay(remove1minute(toLocal(new Date(b.end)))) < startOfDay(toLocal(new Date(a.start)))
     )
 }
 
