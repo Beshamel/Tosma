@@ -232,6 +232,7 @@ function WorkSpace({ session, post, logout }) {
                         deleteResa={deleteResa}
                         inventory={inventory}
                         loadPlanning={loadPlanning}
+                        setLoading={setPlanningLoading}
                         modif={displayResaModif}
                         setModif={setDisplayResaModif}
                         post={post}

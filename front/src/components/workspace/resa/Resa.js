@@ -9,6 +9,7 @@ import binIcon from '../../../assets/icons/bin.svg'
 import addIcon from '../../../assets/icons/add.svg'
 import minusIcon from '../../../assets/icons/minus.svg'
 import editIcon from '../../../assets/icons/edit.svg'
+import copyIcon from '../../../assets/icons/copy.svg'
 
 import '../../../styles/workspace/resa/Resa.css'
 import { DateTimePicker, LocalizationProvider } from '@mui/x-date-pickers'
@@ -16,7 +17,23 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import dayjs from 'dayjs'
 import useWindowDimensions from '../../../hooks/useWindowDimensions'
 
-function Resa({ id, resa, conflicts, matos, loadResa, setDetails, setResa, deleteResa, inventory, loadPlanning, modif, setModif, post }) {
+function Resa({
+    id,
+    resa,
+    conflicts,
+    matos,
+    loadResa,
+    setDetails,
+    setResa,
+    deleteResa,
+    inventory,
+    loadPlanning,
+    modif,
+    setModif,
+    post,
+    setLoading,
+    refresh,
+}) {
     var { width } = useWindowDimensions()
     var [matosSearch, setMatosSearch] = useState('')
     var [categorySearch, setCategorySearch] = useState(-1)
@@ -39,7 +56,6 @@ function Resa({ id, resa, conflicts, matos, loadResa, setDetails, setResa, delet
 
     async function removeMatos(id) {
         await post(api + '/api/resa/' + resa.id + '/removeMatos/' + id)
-        setMatosSearch('')
         loadResa()
         loadPlanning()
     }
@@ -80,6 +96,27 @@ function Resa({ id, resa, conflicts, matos, loadResa, setDetails, setResa, delet
                 loadResa()
             })()
         }
+    }
+
+    const handleCopy = async () => {
+        const data = new FormData()
+        data.append('name', resa.name + ' - copie')
+        data.append('start', formatLocalDateTime(new Date(resa.start)))
+        data.append('end', formatLocalDateTime(new Date(resa.end)))
+        setLoading(true)
+        ;(async () => {
+            try {
+                var id = await post(api + '/api/addResa', data)
+                matos.map(async (m) => {
+                    await post(api + '/api/resa/' + id.data.id + '/addMatos/' + m.id)
+                })
+                await loadPlanning()
+                setResa(id.data.id)
+            } catch (err) {
+                console.log(err)
+            }
+            setLoading(false)
+        })()
     }
 
     useEffect(() => {
@@ -326,6 +363,15 @@ function Resa({ id, resa, conflicts, matos, loadResa, setDetails, setResa, delet
                             loadResa()
                             resetModif()
                             setModif(!modif)
+                        }}
+                    ></img>
+                    <img
+                        src={copyIcon}
+                        alt=""
+                        className="iconButton interactable"
+                        action="copy"
+                        onClick={() => {
+                            handleCopy()
                         }}
                     ></img>
                     <Popup trigger={<img src={binIcon} alt="" className="iconButton interactable" action="delete"></img>} position="right center">
