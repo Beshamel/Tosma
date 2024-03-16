@@ -22,6 +22,7 @@ code {
     --darkergrey: #18191c;
     --sky-light: #8ee6ff;
     --sky: #61dafb;
+    --sky-alt: #14d6ff;
     --sky-dark:#2f86a9;
     --purple: #ad61ff;
     --pumpkin: #fe7f2d;
@@ -46,7 +47,7 @@ code {
 
     --theme-main: var(--sky);
     --theme-alt: var(--sky-light);
-    --theme-border: var(--sky);
+    --theme-border: var(--sky-dark);
 
     --theme-button: var(--sky);
     --theme-button-hover: var(--sky-light);
@@ -69,8 +70,8 @@ code {
     --header-text: black;
     --header-text-theme: black;
 
-    --tab-off-background: none;
-    --tab-off-border: none;
+    --tab-off-background: var(--sky-alt);
+    --tab-off-border: var(--theme-border);
     --tab-off-text: black;
     --tab-alt-background: var(--grey);
     --tab-alt-border: var(--tab-alt-background);
@@ -81,25 +82,45 @@ code {
 
     /* Planning */
 
+    /*
+    NOEL
     --day-header-background: #bb4949;
     --day-header-background-alt: #e25555;
     --day-header-background-today: rgb(131, 119, 235);
     --day-header-text: black;
     --day-column-background: rgb(92, 42, 42);
     --day-column-background-alt: rgb(101, 58, 58);
-    --day-column-background-today: rgb(90, 71, 120);
+    --day-column-background-today: rgb(90, 71, 120);*/
 
-    /*--day-header-background: #4ba0ef;
+    /*
+    CLASSIC
+    --day-header-background: #4ba0ef;
     --day-header-background-alt: #68c5ed;
     --day-header-background-today: rgb(235, 119, 119);
     --day-header-text: black;
     --day-column-background: rgb(32, 53, 80);
     --day-column-background-alt: rgb(58, 78, 101);
-    --day-column-background-today: rgb(120, 71, 71);*/
+    --day-column-background-today: rgb(120, 71, 71);
 
     --planning-resa-background: var(--grey);
     --planning-resa-header-background: var(--sky);
     --planning-resa-border: var(--border-light);
     --planning-resa-highlight-background: var(--theme-alt);
-    --planning-resa-highlight-border: var(--theme-border)
+    --planning-resa-highlight-border: var(--theme-border)*/
+
+    /*v2*/
+    --day-header-background: #902923;
+    --day-header-background-alt: #a22c29;
+    --day-header-background-today: #61dafb;
+    --day-header-text: white;
+    --day-header-text-today: black;
+    --day-column-background: #502826;
+    --day-column-background-alt: #5f2929;
+    --day-column-background-today: #315c68;
+
+    --planning-resa-background: var(--grey);
+    --planning-resa-header-background: #70f1ff;
+    --planning-resa-border: var(--border-light);
+    --planning-resa-highlight-background: #93f4ff;
+    --planning-resa-highlight-border: var(--theme-border);
 }

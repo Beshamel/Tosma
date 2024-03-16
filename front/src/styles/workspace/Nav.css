@@ -16,7 +16,7 @@
     align-items: center;
     border-top-right-radius: 25px;
     border-top-left-radius: 25px;
-    background-color: var(--tab-background);
+    background-color: var(--tab-off-background);
     border: 1px solid var(--tab-off-border);
     border-bottom: none;
     border-right: none;

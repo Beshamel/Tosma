@@ -8,9 +8,16 @@ import img_accessory from './assets/categories/accessory.svg'
 import img_son from './assets/categories/son.svg'
 import img_battery from './assets/categories/battery.svg'
 
+// PROD
 export const api = 'https://tosma.hyris.tv'
+
+// DEV - Docker
 //export const api = 'http://localhost:8082'
-export const version = '2.1.0'
+
+// DEV - simple
+//export const api = 'http://localhost:8080'
+
+export const version = '2.2.0'
 
 export const categories = [
     { cat_id: 0, cat_name: 'Autre', img: img_autre },
