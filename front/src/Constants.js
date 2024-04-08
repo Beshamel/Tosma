@@ -17,7 +17,7 @@ export const api = 'https://tosma.hyris.tv'
 // DEV - simple
 //export const api = 'http://localhost:8080'
 
-export const version = '2.2.0'
+export const version = '2.2.1'
 
 export const categories = [
     { cat_id: 0, cat_name: 'Autre', img: img_autre },
